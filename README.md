@@ -4,7 +4,7 @@
 
 To install Devika, follow these steps:
 
-1. Clone the Devika repository:
+1. Clone the Guardian.AI repository:
    ```bash
    git clone hhttps://github.com/nithin9000/guardian.AI
    ```
