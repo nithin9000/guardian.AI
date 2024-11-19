@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 import os
 import logging
 from datetime import datetime
-from model import AIImageDetector, AIImageDataset
+from src.model import AIImageDetector, AIImageDataset
 
 class AIDetectorTrainer:
     def __init__(self, train_dir, val_dir, batch_size=32, num_workers=4):
