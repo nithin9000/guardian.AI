@@ -24,7 +24,7 @@ To install Devika, follow these steps:
 
    uv pip install -r requirements.txt
    ```
-4. Start the Devika server:
+4. Start the Guardian server:
    ```bash
    python guardian.py
    ```

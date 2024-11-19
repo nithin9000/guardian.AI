@@ -115,7 +115,7 @@ class AIDetectorTrainer:
                          f'Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.2f}%')
 
             print(log_message)
-            logging.info(log_message)
+            logging.info(log_message
 
             self.scheduler.step(val_loss)
 
