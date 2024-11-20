@@ -2,7 +2,7 @@
 
 ### Installation
 
-To install Devika, follow these steps:
+To install Guardian, follow these steps:
 
 1. Clone the Guardian.AI repository:
    ```bash
