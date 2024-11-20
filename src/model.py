@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torchvision import models
+from torchvision.models import densenet121, DenseNet121_Weights
 from torch.utils.data import Dataset
 from PIL import Image
 import os
@@ -10,16 +11,17 @@ class AIImageDataset(Dataset):
         self.root_dir = root_dir
         self.transform = transform
         self.classes = ['real', 'ai_generated']
-
         self.images = []
         self.labels = []
 
+        # Load real images
         real_dir = os.path.join(root_dir, 'real')
         for img_name in os.listdir(real_dir):
             if img_name.lower().endswith(('.png', '.jpg', '.jpeg')):
                 self.images.append(os.path.join(real_dir, img_name))
                 self.labels.append(0)
 
+        # Load AI-generated images
         ai_dir = os.path.join(root_dir, 'ai_generated')
         for img_name in os.listdir(ai_dir):
             if img_name.lower().endswith(('.png', '.jpg', '.jpeg')):
@@ -36,19 +38,17 @@ class AIImageDataset(Dataset):
 
         if self.transform:
             image = self.transform(image)
-
         return image, label
 
 class AIImageDetector(nn.Module):
     def __init__(self):
         super(AIImageDetector, self).__init__()
-        self.densenet = models.densenet121(pretrained=True)
 
-        # Freeze early layers
+        self.densenet = densenet121(weights=DenseNet121_Weights.IMAGENET1K_V1)
+
         for param in list(self.densenet.parameters())[:-12]:
             param.requires_grad = False
 
-        # Modify the classifier for binary classification
         num_features = self.densenet.classifier.in_features
         self.densenet.classifier = nn.Sequential(
             nn.Linear(num_features, 512),
