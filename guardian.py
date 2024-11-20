@@ -135,8 +135,8 @@ class AIDetectorTrainer:
         }, os.path.join('models', filename))
 
 def main():
-    train_dir = '/Users/nithin/Documents/guardianAI/dataset/train'
-    val_dir = '/Users/nithin/Documents/guardianAI/dataset/val'
+    train_dir = r'X:\Data\train'
+    val_dir = r'X:\Data\val'
 
     # Initialize trainer
     trainer = AIDetectorTrainer(
