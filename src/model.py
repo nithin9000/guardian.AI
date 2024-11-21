@@ -44,14 +44,11 @@ class AIImageDetector(nn.Module):
     def __init__(self):
         super(AIImageDetector, self).__init__()
 
-        # Use the new weights parameter instead of pretrained
         self.densenet = densenet121(weights=DenseNet121_Weights.IMAGENET1K_V1)
 
-        # Freeze early layers
         for param in list(self.densenet.parameters())[:-12]:
             param.requires_grad = False
 
-        # Modify the classifier for binary classification
         num_features = self.densenet.classifier.in_features
         self.densenet.classifier = nn.Sequential(
             nn.Linear(num_features, 512),

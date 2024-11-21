@@ -2,7 +2,7 @@
 
 ### Installation
 
-To install Devika, follow these steps:
+To install Guardian, follow these steps:
 
 1. Clone the Guardian.AI repository:
    ```bash
@@ -24,7 +24,7 @@ To install Devika, follow these steps:
 
    uv pip install -r requirements.txt
    ```
-4. Start the Devika server:
+4. Start the Guardian server:
    ```bash
    python guardian.py
    ```
