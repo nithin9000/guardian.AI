@@ -14,15 +14,19 @@ To install Guardian, follow these steps:
    ```
 3. Create a virtual environment and install the required dependencies (you can use any virtual environment manager):
    ```bash
-   uv venv
+   # Python
+   python -m venv guardian
+
+   #Python3
+   python3 -m venv guardian
 
    # On macOS and Linux.
-   source .venv/bin/activate
+   source guardian/bin/activate
 
    # On Windows.
-   .venv\Scripts\activate
+   .\guardian\Scripts\activate
 
-   uv pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
 4. Start the Guardian server:
    ```bash
